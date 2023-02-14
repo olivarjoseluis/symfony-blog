@@ -8,6 +8,8 @@ use Zenstruck\Foundry\ModelFactory;
 use Zenstruck\Foundry\Proxy;
 use Zenstruck\Foundry\RepositoryProxy;
 
+use Symfony\Component\String\Slugger\AsciiSlugger;
+
 /**
  * @extends ModelFactory<Post>
  *
@@ -46,11 +48,16 @@ final class PostFactory extends ModelFactory
      */
     protected function getDefaults(): array
     {
+        $slugger = new AsciiSlugger();
+        $title = self::faker()->unique()->sentence();
+
         return [
+
+
             'category' => CategoryFactory::new(),
             'content' => self::faker()->text(),
-            'slug' => self::faker()->sentence(),
-            'title' => self::faker()->sentence(),
+            'slug' => strtolower($slugger->slug($title)),
+            'title' => $title,
         ];
     }
 
