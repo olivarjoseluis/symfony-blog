@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
@@ -28,9 +29,10 @@ class PostCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->onlyOnIndex(),
-            AssociationField::new('category','Categoría'),
+            AssociationField::new('category', 'Categoría'),
             TextField::new('title', 'Título'),
             TextField::new('slug'),
+            ImageField::new('image', 'Imagen')->setUploadDir("/public/uploads/images/")->hideOnIndex(),
             TextEditorField::new('content', 'Contenido de la publicación')->hideOnIndex(),
         ];
     }
