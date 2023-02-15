@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{post.title}}|Blog
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="row">
+			<h1 class="display-1">{{post.title}}</h1>
+			{% if post.image %}
+				<img src="{{post.image}}" alt="{{post.title}}">
+			{% endif %}
+			<p>{{post.content}}</p>
+			<span>{{post.category.name}}</span>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				{% if (post.comments|length) > 1 or (post.comments|length )== 0 %}
+					<span>{{post.comments|length}}
+						Comments</span>
+				{% else %}
+					<span>{{post.comments|length}}
+						Comment</span>
+				{% endif %}
+
+			</div>
+			<div class="col-12">
+				{% for comment in post.comments %}
+					<span>{{comment.user.name}}</span>
+					<p>{{comment.content}}</p>
+					<hr>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+{% endblock %}

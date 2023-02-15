@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{controller_name}}|Blog
+{% endblock %}
+
+{% block body %}
+	{% for post in posts %}
+		<div class="col-12 col-md-3">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">{{post.title}}</h5>
+					<span>{{post.category.name}}
+					</span>
+					<span>{{post.comments|length}}</span>
+					<a class="btn btn-primary" href="{{path('app_post',{slug:post.slug})}}">See more</a>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+{% endblock %}
