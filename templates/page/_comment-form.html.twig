@@ -1,8 +1,10 @@
 {% if app.user %}
-	<p>Comment how
-		<strong>{{app.user.name}}</strong>
-	</p>
-	{{form(form,{'action':path('app_comment_new',{slug:post.slug})})}}
-		{% else %}
-			<a href="{{path('app_login')}}">Login</a>
-	{% endif %}
+	<div class="border border-dark p-3 rounded">
+		<p>
+			<strong>{{app.user.name}}</strong>
+		</p>
+		{{form(form,{'action':path('app_comment_new',{slug:post.slug})})}}
+			{% else %}
+				<a href="{{path('app_login')}}">Login</a>
+			</div>
+		{% endif %}

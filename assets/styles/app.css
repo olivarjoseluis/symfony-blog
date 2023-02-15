@@ -28,3 +28,7 @@ body {
     background-color: rgba(var(--primary), 0.85);
     border-color: rgba(var(--primary), 0.85);
 }
+
+.post.single-post .border-dark {
+    border: 1px solid rgba(var(--dark), 0.25) !important;
+}
