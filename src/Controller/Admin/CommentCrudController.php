@@ -27,8 +27,9 @@ class CommentCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->onlyOnIndex(),
-            AssociationField::new('post', 'Publicación'),
-            TextareaField::new('content', 'Comentario')->hideOnIndex(),
+            AssociationField::new('post', 'Post'),
+            AssociationField::new('user', 'User'),
+            TextareaField::new('content', 'Comment')->hideOnIndex(),
         ];
     }
 }

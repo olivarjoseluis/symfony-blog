@@ -30,7 +30,8 @@ class PostCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->onlyOnIndex(),
-            AssociationField::new('category', 'Categoría'),
+            AssociationField::new('category', 'Category'),
+            AssociationField::new('user', 'User'),
             TextField::new('title', 'Título'),
             SlugField::new('slug')->setTargetFieldName('title'),
             ImageField::new('image', 'Imagen')->setUploadDir("/public/uploads/images/")->hideOnIndex(),
