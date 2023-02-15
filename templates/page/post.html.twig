@@ -26,6 +26,9 @@
 
 			</div>
 			<div class="col-12">
+				{{ include('page/_comment-form.html.twig') }}
+			</div>
+			<div class="col-12">
 				{% for comment in post.comments %}
 					<span>{{comment.user.name}}</span>
 					<p>{{comment.content}}</p>
